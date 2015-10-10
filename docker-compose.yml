@@ -1,0 +1,11 @@
+web:
+  build: .
+  links:
+    - redis
+  ports:
+    - "3000:9292"
+  volumes:
+    - .:/usr/src/app
+  command: bundle exec puma config.ru
+redis:
+  image: redis
