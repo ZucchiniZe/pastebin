@@ -15,7 +15,8 @@ class Paste < Sinatra::Base
   end
 
   get '/' do
-    'Hi'
+    keys = redis.keys '*'
+    erb :index
   end
 
   post '/' do
@@ -25,8 +26,17 @@ class Paste < Sinatra::Base
   end
 
   get '/:paste' do
-    if redis.exists(params['paste'])
-      redis.get(params['paste'])
+    if redis.exists params['paste']
+      redis.get params['paste']
+    else
+      'ditto, you wrong urld'
+    end
+  end
+
+  get '/:paste/raw' do
+    mimetype 'text/plain'
+    if redis.exists params['paste']
+      redis.get params['paste']
     else
       'ditto, you wrong urld'
     end
