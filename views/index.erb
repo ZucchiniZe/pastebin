@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>PBIN – Pastebin</title>
+    </head>
+
+    <body>
+        <div>
+            <h1>Pastebin</h1>
+            <ul>
+                <% keys.each do |key| %>
+                    <a href="<%= key %>"><%= key %></a>
+                <% end %>
+            </ul>
+        </div>
+    </body>
+</html>
