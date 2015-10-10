@@ -7,6 +7,7 @@ class Paste < Sinatra::Base
 
   configure do
     set :server, :puma
+    set :public, '/public'
   end
 
   def rand_string
@@ -15,7 +16,7 @@ class Paste < Sinatra::Base
   end
 
   get '/' do
-    keys = redis.keys '*'
+    @keys = redis.keys '*'
     erb :index
   end
 
@@ -27,15 +28,16 @@ class Paste < Sinatra::Base
 
   get '/:paste' do
     if redis.exists params['paste']
-      redis.get params['paste']
+      @paste = redis.get params['paste']
+      erb :paste
     else
       'ditto, you wrong urld'
     end
   end
 
   get '/:paste/raw' do
-    mimetype 'text/plain'
     if redis.exists params['paste']
+      content_type 'text/plain'
       redis.get params['paste']
     else
       'ditto, you wrong urld'

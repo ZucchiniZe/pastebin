@@ -9,8 +9,10 @@
         <div>
             <h1>Pastebin</h1>
             <ul>
-                <% keys.each do |key| %>
-                    <a href="<%= key %>"><%= key %></a>
+                <% @keys.each do |key| %>
+                    <li>
+                        <a href="<%= key %>"><%= key %></a>
+                    </li>
                 <% end %>
             </ul>
         </div>
