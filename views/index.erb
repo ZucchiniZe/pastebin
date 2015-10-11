@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 
-<html lang="en">
-    <head>
-        <title>PBIN – Pastebin</title>
-    </head>
+    <html lang="en">
+        <head>
+            <title>PBIN – Pastebin</title>
+            <link href="style.css" rel="stylesheet" type="text/css" />
+        </head>
 
-    <body>
-        <div>
-            <h1>Pastebin</h1>
-            <ul>
-                <% @keys.each do |key| %>
+        <body>
+            <div class="navigation">
+                <h1>Pastebin</h1>
+            </div>
+            <div class="container">
+                <ul class="codelist">
+                    <% @keys.each do |key| %>
                     <li>
                         <a href="<%= key %>"><%= key %></a>
                     </li>
                 <% end %>
-            </ul>
-        </div>
-    </body>
-</html>
+                </ul>
+            </div>
+        </body>
+    </html>
+
+
+<% @keys.each do |key| %>
+                    <li>
+                        <a href="<%= key %>"><%= key %></a>
+                    </li>
+                <% end %>

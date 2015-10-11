@@ -1,3 +1,40 @@
+ <!DOCTYPE html>
 <html>
-    
+	<head>
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+	<link rel="stylesheet" href="style.css" type="text/css"/>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js"></script>
+	<script type="text/javascript" src="fancybox/source/jquery.fancybox.js"></script>
+	<link rel="stylesheet" href="fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
+</head>
+	<body>
+		<script>
+		$(document).ready(function() {
+	
+	$("a#inline").fancybox({
+		'hideOnContentClick': true
+	});
+	
+	});
+		</script>
+		 <div class="navigation">
+                <h1>Pastebin</h1>
+            </div>
+          <div class="container">
+          	<h2><%= key %></h2>
+		<pre class="code"><code>
+
+		</code></pre>
+
+<a id="inline" href="#data"></a>
+		<div style="display:none"><div id="data"><br/>URL: <input type="text" /></div></div>
+
+		<button class="button">Download</button>
+		<a id="inline" href="#data"><button class="button">Share</button></a>
+		</div>
+    	<script>hljs.initHighlightingOnLoad();</script>
+	</body>
 </html>
